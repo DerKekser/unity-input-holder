@@ -8,5 +8,7 @@
     "keywords": [ "input", "input system", "input holder", "inputholder" ],
     "license": "MIT",
     "category": "Task",
-    "dependencies": {}
+    "dependencies": {
+        "com.unity.inputsystem": "1.0.2"
+    }
 }
