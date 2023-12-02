@@ -2,7 +2,7 @@
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-namespace Game.Scripts.Helper.Input
+namespace Kekser.Input
 {
     public class InputEventTrigger : MonoBehaviour
     {

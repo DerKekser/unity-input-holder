@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Game.Scripts.Helper.Input.Editor
+namespace Kekser.Input.Editor
 {
     [CustomPropertyDrawer(typeof(InputHolder))]
     public class InputHolderDrawer : PropertyDrawer

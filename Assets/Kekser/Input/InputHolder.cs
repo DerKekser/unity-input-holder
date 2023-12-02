@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Game.Scripts.Helper.Input
+namespace Kekser.Input
 {
     [Serializable]
     public class InputHolder
