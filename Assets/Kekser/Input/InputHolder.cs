@@ -157,6 +157,7 @@ namespace Kekser.Input
             return this;
         }
         
+#if UNITY_2021_3_OR_NEWER
         public bool GetButton()
         {
             return Action?.IsPressed() ?? false;
@@ -171,6 +172,7 @@ namespace Kekser.Input
         {
             return Action?.WasReleasedThisFrame() ?? false;
         }
+#endif
         
         public T ReadValue<T>() where T : struct
         {
