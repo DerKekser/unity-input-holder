@@ -156,7 +156,27 @@ namespace Kekser.Input
             _started = null;
             return this;
         }
-
+        
+        public bool GetButton()
+        {
+            return Action?.IsPressed() ?? false;
+        }
+        
+        public bool GetButtonDown()
+        {
+            return Action?.WasPressedThisFrame() ?? false;
+        }
+        
+        public bool GetButtonUp()
+        {
+            return Action?.WasReleasedThisFrame() ?? false;
+        }
+        
+        public T ReadValue<T>() where T : struct
+        {
+            return Action?.ReadValue<T>() ?? default;
+        }
+        
         public InputActionRebindingExtensions.RebindingOperation Rebind(int bindingIndex = -1, string withControlsExcluding = "Mouse")
         {
             DisableAll();
