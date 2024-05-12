@@ -67,30 +67,40 @@ namespace Kekser.Input
         
         public InputHolder Enable()
         {
+            if (!Application.isPlaying)
+                return this;
             Action?.Enable();
             return this;
         }
         
         public InputHolder Disable()
         {
+            if (!Application.isPlaying)
+                return this;
             Action?.Disable();
             return this;
         }
         
         public InputHolder Enable(string otherActionMap)
         {
+            if (!Application.isPlaying)
+                return this;
             _inputAsset.FindActionMap(otherActionMap)?.Enable();
             return this;
         }
         
         public InputHolder Disable(string otherActionMap)
         {
+            if (!Application.isPlaying)
+                return this;
             _inputAsset.FindActionMap(otherActionMap)?.Disable();
             return this;
         }
         
         public InputHolder EnableAll()
         {
+            if (!Application.isPlaying)
+                return this;
             foreach (InputActionMap actionMap in _inputAsset.actionMaps)
             {
                 actionMap.Enable();
@@ -100,6 +110,8 @@ namespace Kekser.Input
         
         public InputHolder DisableAll()
         {
+            if (!Application.isPlaying)
+                return this;
             foreach (InputActionMap actionMap in _inputAsset.actionMaps)
             {
                 actionMap.Disable();
@@ -109,18 +121,24 @@ namespace Kekser.Input
 
         public InputHolder Performed(Action<InputAction.CallbackContext> callback)
         {
+            if (!Application.isPlaying)
+                return this;
             _performed = callback;
             return this;
         }
         
         public InputHolder Canceled(Action<InputAction.CallbackContext> callback)
         {
+            if (!Application.isPlaying)
+                return this;
             _canceled = callback;
             return this;
         }
         
         public InputHolder PerformedCanceled(Action<InputAction.CallbackContext> callback)
         {
+            if (!Application.isPlaying)
+                return this;
             Performed(callback);
             Canceled(callback);
             return this;
@@ -128,24 +146,32 @@ namespace Kekser.Input
         
         public InputHolder Started(Action<InputAction.CallbackContext> callback)
         {
+            if (!Application.isPlaying)
+                return this;
             _started = callback;
             return this;
         }
         
         public InputHolder RemovePerformed()
         {
+            if (!Application.isPlaying)
+                return this;
             _performed = null;
             return this;
         }
         
         public InputHolder RemoveCanceled()
         {
+            if (!Application.isPlaying)
+                return this;
             _canceled = null;
             return this;
         }
         
         public InputHolder RemovePerformedCanceled()
         {
+            if (!Application.isPlaying)
+                return this;
             RemovePerformed();
             RemoveCanceled();
             return this;
@@ -153,30 +179,40 @@ namespace Kekser.Input
         
         public InputHolder RemoveStarted()
         {
+            if (!Application.isPlaying)
+                return this;
             _started = null;
             return this;
         }
         
         public InputHolder RegisterStarted(Action<InputAction.CallbackContext> callback)
         {
+            if (!Application.isPlaying)
+                return this;
             _started += callback;
             return this;
         }
         
         public InputHolder RegisterPerformed(Action<InputAction.CallbackContext> callback)
         {
+            if (!Application.isPlaying)
+                return this;
             _performed += callback;
             return this;
         }
         
         public InputHolder RegisterCanceled(Action<InputAction.CallbackContext> callback)
         {
+            if (!Application.isPlaying)
+                return this;
             _canceled += callback;
             return this;
         }
         
         public InputHolder RegisterPerformedCanceled(Action<InputAction.CallbackContext> callback)
         {
+            if (!Application.isPlaying)
+                return this;
             RegisterPerformed(callback);
             RegisterCanceled(callback);
             return this;
@@ -184,24 +220,32 @@ namespace Kekser.Input
         
         public InputHolder UnregisterStarted(Action<InputAction.CallbackContext> callback)
         {
+            if (!Application.isPlaying)
+                return this;
             _started -= callback;
             return this;
         }
         
         public InputHolder UnregisterPerformed(Action<InputAction.CallbackContext> callback)
         {
+            if (!Application.isPlaying)
+                return this;
             _performed -= callback;
             return this;
         }
         
         public InputHolder UnregisterCanceled(Action<InputAction.CallbackContext> callback)
         {
+            if (!Application.isPlaying)
+                return this;
             _canceled -= callback;
             return this;
         }
         
         public InputHolder UnregisterPerformedCanceled(Action<InputAction.CallbackContext> callback)
         {
+            if (!Application.isPlaying)
+                return this;
             UnregisterPerformed(callback);
             UnregisterCanceled(callback);
             return this;
