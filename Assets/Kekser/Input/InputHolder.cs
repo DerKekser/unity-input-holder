@@ -18,9 +18,9 @@ namespace Kekser.Input
         private string _lastActionName;
         private InputAction _action;
         
-        private Action<InputAction.CallbackContext> _performed;
-        private Action<InputAction.CallbackContext> _canceled;
-        private Action<InputAction.CallbackContext> _started;
+        private event Action<InputAction.CallbackContext> _performed;
+        private event Action<InputAction.CallbackContext> _canceled;
+        private event Action<InputAction.CallbackContext> _started;
 
         private InputAction Action
         {
@@ -154,6 +154,56 @@ namespace Kekser.Input
         public InputHolder RemoveStarted()
         {
             _started = null;
+            return this;
+        }
+        
+        public InputHolder RegisterStarted(Action<InputAction.CallbackContext> callback)
+        {
+            _started += callback;
+            return this;
+        }
+        
+        public InputHolder RegisterPerformed(Action<InputAction.CallbackContext> callback)
+        {
+            _performed += callback;
+            return this;
+        }
+        
+        public InputHolder RegisterCanceled(Action<InputAction.CallbackContext> callback)
+        {
+            _canceled += callback;
+            return this;
+        }
+        
+        public InputHolder RegisterPerformedCanceled(Action<InputAction.CallbackContext> callback)
+        {
+            RegisterPerformed(callback);
+            RegisterCanceled(callback);
+            return this;
+        }
+        
+        public InputHolder UnregisterStarted(Action<InputAction.CallbackContext> callback)
+        {
+            _started -= callback;
+            return this;
+        }
+        
+        public InputHolder UnregisterPerformed(Action<InputAction.CallbackContext> callback)
+        {
+            _performed -= callback;
+            return this;
+        }
+        
+        public InputHolder UnregisterCanceled(Action<InputAction.CallbackContext> callback)
+        {
+            _canceled -= callback;
+            return this;
+        }
+        
+        public InputHolder UnregisterPerformedCanceled(Action<InputAction.CallbackContext> callback)
+        {
+            UnregisterPerformed(callback);
+            UnregisterCanceled(callback);
             return this;
         }
         

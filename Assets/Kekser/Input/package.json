@@ -2,7 +2,7 @@
     "name": "com.kekser.inputholder",
     "displayName": "InputHolder",
     "author": { "name": "Kekser", "url": "https://github.com/DerKekser" },
-    "version": "1.1.0",
+    "version": "1.2.0",
     "unity": "2020.3",
     "description": "A extension for the new input system for Unity.",
     "keywords": [ "input", "input system", "input holder", "inputholder" ],
